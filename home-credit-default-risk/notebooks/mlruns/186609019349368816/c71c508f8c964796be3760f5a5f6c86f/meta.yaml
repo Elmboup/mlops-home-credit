@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/macbookpro/Documents/DIC3/MlOps/Mlops_project/mlops-home-credit/home-credit-default-risk/notebooks/mlruns/186609019349368816/c71c508f8c964796be3760f5a5f6c86f/artifacts
+end_time: 1753828805796
+entry_point_name: ''
+experiment_id: '186609019349368816'
+lifecycle_stage: active
+run_id: c71c508f8c964796be3760f5a5f6c86f
+run_name: LogisticRegression
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753828702032
+status: 3
+tags: []
+user_id: macbookpro

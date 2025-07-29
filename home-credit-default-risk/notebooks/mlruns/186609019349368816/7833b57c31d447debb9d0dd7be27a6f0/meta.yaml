@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/macbookpro/Documents/DIC3/MlOps/Mlops_project/mlops-home-credit/home-credit-default-risk/notebooks/mlruns/186609019349368816/7833b57c31d447debb9d0dd7be27a6f0/artifacts
+end_time: 1753828493247
+entry_point_name: ''
+experiment_id: '186609019349368816'
+lifecycle_stage: active
+run_id: 7833b57c31d447debb9d0dd7be27a6f0
+run_name: RandomForest
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753827904443
+status: 3
+tags: []
+user_id: macbookpro

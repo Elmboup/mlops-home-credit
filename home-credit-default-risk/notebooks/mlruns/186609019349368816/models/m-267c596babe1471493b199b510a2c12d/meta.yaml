@@ -1,0 +1,10 @@
+artifact_location: file:///Users/macbookpro/Documents/DIC3/MlOps/Mlops_project/mlops-home-credit/home-credit-default-risk/notebooks/mlruns/186609019349368816/models/m-267c596babe1471493b199b510a2c12d/artifacts
+creation_timestamp: 1753828484545
+experiment_id: '186609019349368816'
+last_updated_timestamp: 1753828493242
+model_id: m-267c596babe1471493b199b510a2c12d
+model_type: null
+name: RandomForest
+source_run_id: 7833b57c31d447debb9d0dd7be27a6f0
+status: 2
+status_message: null

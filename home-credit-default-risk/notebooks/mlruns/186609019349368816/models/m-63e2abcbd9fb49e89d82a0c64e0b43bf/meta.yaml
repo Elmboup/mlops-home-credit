@@ -1,0 +1,10 @@
+artifact_location: file:///Users/macbookpro/Documents/DIC3/MlOps/Mlops_project/mlops-home-credit/home-credit-default-risk/notebooks/mlruns/186609019349368816/models/m-63e2abcbd9fb49e89d82a0c64e0b43bf/artifacts
+creation_timestamp: 1753828585360
+experiment_id: '186609019349368816'
+last_updated_timestamp: 1753828589847
+model_id: m-63e2abcbd9fb49e89d82a0c64e0b43bf
+model_type: null
+name: XGBoost
+source_run_id: 6c7fa4f6f6654cc485437bef59d049b1
+status: 2
+status_message: null
