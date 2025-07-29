@@ -1,5 +1,7 @@
 black
 flake8
+missingno
+ydata-profiling
 ipython
 isort
 jupyterlab
@@ -15,4 +17,9 @@ python-dotenv
 scikit-learn
 tqdm
 typer
+xgboost
+lightgbm
+shap
+mlflow
+joblib
 -e .
