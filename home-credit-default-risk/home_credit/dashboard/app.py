@@ -13,7 +13,7 @@ from sklearn.pipeline import Pipeline
 
 
 # Paths
-MODEL_PATH = Path("models/best_model.joblib")
+MODEL_PATH = Path("models/best_model.pkl")
 DATA_PATH = Path("home-credit-default-risk/data/processed/test_merged.csv")
 
 # Charger le modèle

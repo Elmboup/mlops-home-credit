@@ -5,6 +5,12 @@
 # import joblib
 # import matplotlib.pyplot as plt
 # from home_credit.config import MODELS_DIR
+import sys
+import os
+
+# Ajoute le répertoire racine du projet au PYTHONPATH
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 
 # # Configuration
 # st.set_page_config(page_title="Credit Scoring Dashboard", layout="wide")
