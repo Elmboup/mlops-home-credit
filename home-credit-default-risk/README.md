@@ -1,12 +1,38 @@
-# home-credit-default-risk
+# Home Credit Default Risk – MLOps Project
+
+##  Objectif
+Développer un modèle de **scoring crédit** qui évalue la probabilité de défaut de remboursement d’un client, à partir de données issues de la compétition [Kaggle - Home Credit Default Risk](https://www.kaggle.com/c/home-credit-default-risk/data).
+
+Le projet est mené selon une démarche **MLOps complète** : de l’analyse exploratoire à la mise en production du modèle avec suivi des expérimentations, tests, dashboard d’interprétation, et CI/CD via GitHub Actions.
+
+---
+
+## Contexte métier
+
+La société **"Prêt à Dépenser"**, spécialisée dans le crédit à la consommation, cherche à mieux évaluer les risques de non-remboursement chez des clients sans historique bancaire. Elle souhaite :
+
+- Automatiser les décisions d’octroi de crédit.
+- Améliorer la **transparence** des décisions pour les conseillers client.
+- Fournir un **dashboard interactif** pour visualiser les scores et interpréter les prédictions.
+
+---
+
+## Stack technique
+
+- **Python 3.9+**
+- `scikit-learn`, `xgboost`, `pandas`, `numpy`, `seaborn`, `matplotlib`
+- `mlflow`, `shap`, `streamlit`
+- `cookiecutter-data-science` structure
+- `pytest`, `joblib`
+- **CI/CD** : GitHub Actions
+
+---
+
+## Organisation du répertoire
 
 <a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
 </a>
-
-ML model to predict probability of default
-
-## Project Organization
 
 ```
 ├── LICENSE            <- Open-source license if one is chosen
@@ -59,3 +85,42 @@ ML model to predict probability of default
 
 --------
 
+
+## Démarche projet
+
+### 1. Analyse exploratoire (`scoring_01_exploration.ipynb`)
+- Nettoyage et imputations
+- Visualisations : pairplot, heatmap de corrélations, boxplots revenus/âge
+- Analyse SHAP globale (importances des variables)
+
+### 2. Modélisation (`scoring_02_modelling.ipynb`)
+- Séparation train/test
+- Pipelines `scikit-learn` : preprocessing + modèle
+- Modèles testés : Logistic Regression, Decision Tree, RandomForest, Gradient Boosting, XGBoost...
+- **MLflow** pour tracking des scores `roc_auc`, `f1`, `accuracy`
+- Sélection du **meilleur modèle** : XGBoost (ROC AUC = 0.76)
+
+### 3. Dashboard interactif (Streamlit)
+- Sélection d’un client
+- Affichage du score et probabilité de défaut
+- Interprétation locale avec **SHAP waterfall**
+- Visualisation des données client
+
+### 4. Entraînement et prédiction (`train.py`, `predict.py`)
+- Entraînement du modèle final
+- Sauvegarde en `.joblib`
+- Fonction d’inférence unitaire
+
+### 5. CI/CD et tests (`.github/`, `tests/`)
+- Test de chargement du modèle
+- Vérification des transformations
+- Intégration automatisée avec GitHub Actions
+
+---
+
+##  Lancer le projet
+
+###  Installation des dépendances
+
+```bash
+pip install -r requirements.txt
