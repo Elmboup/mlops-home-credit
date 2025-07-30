@@ -1,30 +1,28 @@
+import pandas as pd
+import joblib
+import argparse
 from pathlib import Path
+from sklearn.base import BaseEstimator
 
-from loguru import logger
-from tqdm import tqdm
-import typer
+# Load pipeline and predict
+def load_model(model_path: str) -> BaseEstimator:
+    return joblib.load(model_path)
 
-from home_credit.config import MODELS_DIR, PROCESSED_DATA_DIR
+def predict(model: BaseEstimator, input_data: pd.DataFrame) -> pd.DataFrame:
+    preds = model.predict_proba(input_data)[:, 1]  # Proba de défaut (class 1)
+    return pd.DataFrame({"SK_ID_CURR": input_data.index, "default_proba": preds})
 
-app = typer.Typer()
-
-
-@app.command()
-def main(
-    # ---- REPLACE DEFAULT PATHS AS APPROPRIATE ----
-    features_path: Path = PROCESSED_DATA_DIR / "test_features.csv",
-    model_path: Path = MODELS_DIR / "model.pkl",
-    predictions_path: Path = PROCESSED_DATA_DIR / "test_predictions.csv",
-    # -----------------------------------------
-):
-    # ---- REPLACE THIS WITH YOUR OWN CODE ----
-    logger.info("Performing inference for model...")
-    for i in tqdm(range(10), total=10):
-        if i == 5:
-            logger.info("Something happened for iteration 5.")
-    logger.success("Inference complete.")
-    # -----------------------------------------
-
+def main(model_path: str, input_csv: str, output_csv: str):
+    model = load_model(model_path)
+    data = pd.read_csv(input_csv, index_col="SK_ID_CURR")
+    predictions = predict(model, data)
+    predictions.to_csv(output_csv, index=False)
+    print(f" Prédictions sauvegardées dans {output_csv}")
 
 if __name__ == "__main__":
-    app()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--model_path", type=str, required=True)
+    parser.add_argument("--input_csv", type=str, required=True)
+    parser.add_argument("--output_csv", type=str, required=True)
+    args = parser.parse_args()
+    main(args.model_path, args.input_csv, args.output_csv)
