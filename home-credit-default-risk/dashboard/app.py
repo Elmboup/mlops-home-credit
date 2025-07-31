@@ -19,7 +19,7 @@ st.title("📊 Credit Scoring Dashboard")
 model = joblib.load(MODELS_DIR / "best_model.joblib")
 
 # 🔗 URL de l'API (en local)
-API_URL = "http://localhost:8000/predict"
+API_URL = "https://mlops-home-credit.onrender.com/predict"
 
 # --- 1. UPLOAD DES DONNÉES ---
 st.header("📤 1. Upload des données client")
