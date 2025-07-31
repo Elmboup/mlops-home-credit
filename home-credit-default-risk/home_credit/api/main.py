@@ -105,32 +105,34 @@ class ClientData(BaseModel):
     OBS_60_CNT_SOCIAL_CIRCLE: Optional[float] = None
     DEF_60_CNT_SOCIAL_CIRCLE: Optional[float] = None
     DAYS_LAST_PHONE_CHANGE: Optional[float] = None
-    FLAG_DOCUMENT_2: float
-    FLAG_DOCUMENT_3: float
-    FLAG_DOCUMENT_4: float
-    FLAG_DOCUMENT_5: float
-    FLAG_DOCUMENT_6: float
-    FLAG_DOCUMENT_7: float
-    FLAG_DOCUMENT_8: float
-    FLAG_DOCUMENT_9: float
-    FLAG_DOCUMENT_10: float
-    FLAG_DOCUMENT_11: float
-    FLAG_DOCUMENT_12: float
-    FLAG_DOCUMENT_13: float
-    FLAG_DOCUMENT_14: float
-    FLAG_DOCUMENT_15: float
-    FLAG_DOCUMENT_16: float
-    FLAG_DOCUMENT_17: float
-    FLAG_DOCUMENT_18: float
-    FLAG_DOCUMENT_19: float
-    FLAG_DOCUMENT_20: float
-    FLAG_DOCUMENT_21: float
+    FLAG_DOCUMENT_2: Optional[int] = None
+    FLAG_DOCUMENT_3: Optional[int] = None
+    FLAG_DOCUMENT_4: Optional[int] = None
+    FLAG_DOCUMENT_5: Optional[int] = None
+    FLAG_DOCUMENT_6: Optional[int] = None
+    FLAG_DOCUMENT_7: Optional[int] = None
+    FLAG_DOCUMENT_8: Optional[int] = None
+    FLAG_DOCUMENT_9: Optional[int] = None
+    FLAG_DOCUMENT_10: Optional[int] = None
+    FLAG_DOCUMENT_11: Optional[int] = None
+    FLAG_DOCUMENT_12: Optional[int] = None
+    FLAG_DOCUMENT_13: Optional[int] = None
+    FLAG_DOCUMENT_14: Optional[int] = None
+    FLAG_DOCUMENT_15: Optional[int] = None
+    FLAG_DOCUMENT_16: Optional[int] = None
+    FLAG_DOCUMENT_17: Optional[int] = None
+    FLAG_DOCUMENT_18: Optional[int] = None
+    FLAG_DOCUMENT_19: Optional[int] = None
+    FLAG_DOCUMENT_20: Optional[int] = None
+    FLAG_DOCUMENT_21: Optional[int] = None
     AMT_REQ_CREDIT_BUREAU_HOUR: Optional[float] = None
     AMT_REQ_CREDIT_BUREAU_DAY: Optional[float] = None
     AMT_REQ_CREDIT_BUREAU_WEEK: Optional[float] = None
     AMT_REQ_CREDIT_BUREAU_MON: Optional[float] = None
     AMT_REQ_CREDIT_BUREAU_QRT: Optional[float] = None
     AMT_REQ_CREDIT_BUREAU_YEAR: Optional[float] = None
+    AMT_GOODS_PRICE: float
+    bureau_count: Optional[float] = None
     credit_active_unique: float
     total_credit_sum: float
     prev_app_count: float
@@ -151,7 +153,7 @@ async def predict(data: ClientData):
         # Convertir les données Pydantic en dictionnaire
         data_dict = data.dict()
 
-        # Créer un DataFrame avec les 115 colonnes dans l'ordre attendu
+        # Créer un DataFrame avec les colonnes dans l'ordre attendu
         input_df = pd.DataFrame([data_dict])
 
         # Faire la prédiction
