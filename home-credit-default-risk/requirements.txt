@@ -22,4 +22,6 @@ lightgbm
 shap
 mlflow
 joblib
+fastapi
+uvicorn
 #-e .
