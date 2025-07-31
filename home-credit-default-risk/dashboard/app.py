@@ -1,70 +1,3 @@
-# import streamlit as st
-# import pandas as pd
-# import requests
-# import shap
-# import joblib
-# import matplotlib.pyplot as plt
-# from home_credit.config import MODELS_DIR
-
-# # Configuration page
-# st.set_page_config(page_title="Credit Scoring", layout="wide")
-# st.title(" Credit Scoring Dashboard")
-
-# # Charger le modèle localement pour SHAP
-# model = joblib.load(MODELS_DIR / "best_model.joblib")
-
-# #  URL de l'API (en local)
-# API_URL = "http://localhost:8000/predict"
-
-# # --- 1. UPLOAD DES DONNÉES ---
-# st.header(" 1. Upload des données client")
-
-# uploaded_file = st.file_uploader("Chargez un fichier CSV avec les données d'un client", type=["csv"])
-
-# if uploaded_file is not None:
-#     input_df = pd.read_csv(uploaded_file)
-
-#     # Affiche le DataFrame brut
-#     st.subheader("Aperçu des données chargées :")
-#     st.dataframe(input_df)
-
-#     # --- 2. PRÉDICTION ---
-#     st.header(" 2. Prédiction du score")
-
-#     # Convertir la première ligne en dictionnaire pour l'API
-#     input_data = input_df.iloc[0].to_dict()
-
-#     if st.button("Faire la prédiction"):
-#         try:
-#             response = requests.post(API_URL, json=input_data)
-#             result = response.json()
-#             st.write("Réponse brute de l'API :", result)
-
-#             st.success(" Prédiction réussie !")
-#             st.markdown(f"###  Décision : **{result['decision']}**")
-#             st.metric(" Probabilité d'approbation", f"{result['probability_approved']:.2%}")
-#             st.metric(" Probabilité de refus", f"{result['probability_refused']:.2%}")
-
-#             # --- 3. EXPLICATION SHAP ---
-#             st.header(" 3. Explication SHAP")
-            
-#             st.write("Étapes du pipeline :", model.named_steps)
-
-#             # Préparation de l’explainer et des valeurs SHAP
-#             explainer = shap.Explainer(model)
-#             shap_values = explainer(input_df)
-
-#             # Graphique SHAP pour le client
-#             st.subheader("Impact des variables sur la prédiction")
-#             fig = plt.figure()
-#             shap.plots.waterfall(shap_values[0], show=False)
-#             st.pyplot(fig)
-
-#         except Exception as e:
-#             st.error(f" Erreur lors de la prédiction : {e}")
-# else:
-#     st.info("Veuillez charger un fichier CSV pour commencer.")
-
 import streamlit as st
 import pandas as pd
 import requests
@@ -117,6 +50,18 @@ if uploaded_file is not None:
             st.header("🔍 3. Explication SHAP")
             
             st.write("Étapes du pipeline :", list(model.named_steps.keys()))
+                            # Transformer les données avec l'étape preprocessing
+
+            expected_columns = model.feature_names_in_ 
+
+            # Ajouter les colonnes manquantes avec NaN
+            for col in expected_columns:
+                if col not in input_df.columns:
+                    input_df[col] = np.nan
+
+            # Réordonner les colonnes
+            input_df = input_df[expected_columns]
+
 
             try:
                 # SOLUTION 1: Utiliser le modèle final après preprocessing
@@ -132,16 +77,18 @@ if uploaded_file is not None:
                 
                 st.write(f"Preprocessor: {preprocessor_key}, Modèle: {model_key}")
                 
-                # Transformer les données avec l'étape preprocessing
                 preprocessor = model.named_steps['preprocessing']
                 transformed_data = preprocessor.transform(input_df)
-                
+
+                feature_names = preprocessor.get_feature_names_out()
+                trans_df = pd.DataFrame(transformed_data, columns=feature_names)
+
                 # Obtenir le modèle final
                 final_model = model.named_steps['model']
                     
                 # Créer l'explainer avec le modèle final et les données transformées
                 explainer = shap.Explainer(final_model)
-                shap_values = explainer(transformed_data)
+                shap_values = explainer(trans_df)
                 
                 # Graphique SHAP
                 st.subheader("Impact des variables sur la prédiction")
