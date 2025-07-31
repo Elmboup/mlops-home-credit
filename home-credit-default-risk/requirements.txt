@@ -1,7 +1,6 @@
 black
 flake8
 missingno
-ydata-profiling
 ipython
 isort
 jupyterlab
@@ -22,4 +21,5 @@ lightgbm
 shap
 mlflow
 joblib
+# ydata-profiling
 -e .
