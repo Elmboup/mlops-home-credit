@@ -6,3 +6,4 @@ joblib
 numpy
 xgboost
 loguru
+scikit-learn
