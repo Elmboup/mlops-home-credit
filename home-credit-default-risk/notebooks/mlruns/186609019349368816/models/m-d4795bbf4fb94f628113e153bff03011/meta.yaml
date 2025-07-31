@@ -1,0 +1,10 @@
+artifact_location: file:///Users/macbookpro/Documents/DIC3/MlOps/Mlops_project/mlops-home-credit/home-credit-default-risk/notebooks/mlruns/186609019349368816/models/m-d4795bbf4fb94f628113e153bff03011/artifacts
+creation_timestamp: 1753828694894
+experiment_id: '186609019349368816'
+last_updated_timestamp: 1753828702024
+model_id: m-d4795bbf4fb94f628113e153bff03011
+model_type: null
+name: LightGBM
+source_run_id: 2c6d677d31b44948a3224dbd26dc41ce
+status: 2
+status_message: null

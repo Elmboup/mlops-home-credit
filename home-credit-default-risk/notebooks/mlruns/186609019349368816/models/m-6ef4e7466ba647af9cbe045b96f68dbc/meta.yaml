@@ -1,0 +1,10 @@
+artifact_location: file:///Users/macbookpro/Documents/DIC3/MlOps/Mlops_project/mlops-home-credit/home-credit-default-risk/notebooks/mlruns/186609019349368816/models/m-6ef4e7466ba647af9cbe045b96f68dbc/artifacts
+creation_timestamp: 1753828800950
+experiment_id: '186609019349368816'
+last_updated_timestamp: 1753828805793
+model_id: m-6ef4e7466ba647af9cbe045b96f68dbc
+model_type: null
+name: LogisticRegression
+source_run_id: c71c508f8c964796be3760f5a5f6c86f
+status: 2
+status_message: null

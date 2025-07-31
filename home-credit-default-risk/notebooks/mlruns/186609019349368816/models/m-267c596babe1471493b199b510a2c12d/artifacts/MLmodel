@@ -1,0 +1,22 @@
+artifact_path: file:///Users/macbookpro/Documents/DIC3/MlOps/Mlops_project/mlops-home-credit/home-credit-default-risk/notebooks/mlruns/186609019349368816/models/m-267c596babe1471493b199b510a2c12d/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.4
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.4.2
+mlflow_version: 3.1.4
+model_id: m-267c596babe1471493b199b510a2c12d
+model_size_bytes: 16582389
+model_uuid: m-267c596babe1471493b199b510a2c12d
+prompts: null
+run_id: 7833b57c31d447debb9d0dd7be27a6f0
+utc_time_created: '2025-07-29 22:34:44.567106'

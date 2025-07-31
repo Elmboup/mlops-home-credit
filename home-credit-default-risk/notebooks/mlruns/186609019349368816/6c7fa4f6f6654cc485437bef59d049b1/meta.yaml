@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/macbookpro/Documents/DIC3/MlOps/Mlops_project/mlops-home-credit/home-credit-default-risk/notebooks/mlruns/186609019349368816/6c7fa4f6f6654cc485437bef59d049b1/artifacts
+end_time: 1753828589851
+entry_point_name: ''
+experiment_id: '186609019349368816'
+lifecycle_stage: active
+run_id: 6c7fa4f6f6654cc485437bef59d049b1
+run_name: XGBoost
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1753828493251
+status: 3
+tags: []
+user_id: macbookpro
