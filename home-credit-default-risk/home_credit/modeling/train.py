@@ -26,10 +26,11 @@ def train_model(model, X_train, y_train):
     model.fit(X_train, y_train)
     return model
 
-def grid_search(model, param_grid, X_train, y_train, scoring="roc_auc", cv=5, n_jobs=-1):
+def grid_search(model, param_grid, X_train, y_train, scoring="recall", cv=5, n_jobs=-1):
     """
     Effectue une recherche d'hyperparamètres par GridSearchCV.
     Retourne le meilleur estimateur, ses paramètres et le meilleur score.
+    Optimise par défaut sur le rappel (recall).
     """
     gs = GridSearchCV(model, param_grid, scoring=scoring, cv=cv, n_jobs=n_jobs)
     gs.fit(X_train, y_train)
@@ -42,7 +43,7 @@ def compare_gridsearch_models(results):
     """
     if not results:
         raise ValueError("La liste des résultats est vide.")
-    best = max(results, key=lambda x: x[3])  # x[3] = best_score
+    best = max(results, key=lambda x: x[3])  # x[3] = best_score (recall)
     best_name, best_model, best_params, best_score = best
     return best_name, best_model, best_params, best_score
 

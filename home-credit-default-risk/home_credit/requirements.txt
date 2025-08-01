@@ -5,5 +5,6 @@ pandas
 joblib
 numpy
 xgboost
+lightgbm
 loguru
 scikit-learn
