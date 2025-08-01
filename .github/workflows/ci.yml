@@ -28,7 +28,7 @@ jobs:
 
       - name:  Lancer les tests Pytest
         run: |
-          pytest tests/
+          pytest ./home-credit-default-risk/tests/
 
       - name:  Vérifier le style avec flake8
         run: |
