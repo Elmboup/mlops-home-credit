@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from app.main import app  # Adapte selon ta structure de projet
+from home_credit.api.main import app  # Adapte selon la structure du projet
 
 client = TestClient(app)
 
