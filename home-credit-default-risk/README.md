@@ -124,3 +124,8 @@ La société **"Prêt à Dépenser"**, spécialisée dans le crédit à la conso
 
 ```bash
 pip install -r requirements.txt
+
+```
+## Support de présentation:
+[Home credit default risk presention](https://www.canva.com/design/DAGuqZcOyDU/WQs1O2dCRbaR0TrygC7NQQ/edit?utm_content=DAGuqZcOyDU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
